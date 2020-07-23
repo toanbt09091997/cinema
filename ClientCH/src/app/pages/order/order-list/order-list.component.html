@@ -1,0 +1,40 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--7">
+  <!-- Table -->
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <h3 class="mb-0">Order List</h3>
+<!--          <h3 class="mb-0 right"><a class="btn btn-sm btn-primary" href="movie/create"><i class="ni ni-fat-add"></i>Movie</a></h3>-->
+        </div>
+        <div>
+          <table class="table" style="width:100%">
+            <tr>
+              <th>Order ID</th>
+              <th>Ten Phim</th>
+              <th>Ten Rap</th>
+              <th>So ve</th>
+            </tr>
+            <tr *ngFor="let ord of orders">
+              <td><a href="order/detail/{{ord.orderid}}">#{{ord.orderid}}</a></td>
+              <td>{{ord.tenphim}}</td>
+              <td>{{ord.tenrap}}</td>
+              <td>{{ord.sove}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

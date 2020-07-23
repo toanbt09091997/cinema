@@ -1,0 +1,26 @@
+.ell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.ell:hover {
+  overflow: visible;
+  white-space: normal;
+  height:auto;
+}
+
+.ell a {
+  margin: 2px;
+  font-size: 15px;
+}
+
+.card-header h3 {
+  display: inline;
+}
+
+.right {
+  float: right;
+}

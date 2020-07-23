@@ -1,0 +1,20 @@
+<div *ngIf="order != null" class="card shadow">
+<div class="card shadow">
+  <div class="card-header border-0">
+    <div class="row">
+      <div style=" margin-left: 30px;" class="ticket">
+        <span class="tk s">THÔNG TIN VÉ</span>
+        <span style="color: red">{{error}}</span>
+        <span class="s">Tên rạp: <span>{{order.tenrap}}</span></span>
+        <span class="s">Tên phim: <span>{{order.tenphim}}</span></span>
+        <span class="s">Số vé: <span>{{order.sove}}</span></span>
+        <span class="s">Tổng tiền: <span>{{order.tongtien}} vnđ</span></span>
+        <span class="s">Thời gian: <span>{{ ticket.timeStart | date:'shortTime' }} - {{ ticket.timeEnd | date:'shortTime' }}</span></span>
+        <span class="s">Ngày chiếu: <span>{{ ticket.timeStart | date }}</span></span>
+<!--        <a style="line-height: 10px; width: 200px;" *ngIf="success == null" class="btn btn-success" (click)="compTicket(ticket)">Hoàn Tất</a>-->
+        <a style="line-height: 10px; width: 200px;" class="btn btn-success" (click)="compTicket()">Hoàn Tất</a>
+<!--        <span *ngIf="success != null" style="color: green;">{{success}}<a href="ticket">#{{ticketsuccess.lichchieu}}{{ticketsuccess.idGhe}}</a></span>-->
+      </div>
+    </div>
+  </div>
+</div>

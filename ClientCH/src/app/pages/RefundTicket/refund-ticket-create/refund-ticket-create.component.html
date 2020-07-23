@@ -1,0 +1,112 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+  <span class="mask bg-gradient-danger opacity-8"></span>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="card bg-secondary shadow col-12">
+      <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">Add ReTicket</h3>
+          </div>
+          <div class="col-4 text-right">
+            <a href="reTicket" class="btn btn-sm btn-primary">ReTiket</a>
+          </div>
+        </div>
+      </div>
+      <div class="search-mave">
+      <label class="form-control-label" >Mã Vé</label>
+      <select class="form-control" [(ngModel)]="ticketId" (ngModelChange)="getTickets()">
+        <option value="" [disabled]="true">Chọn Mã Vé</option>
+        <option *ngFor="let ticket of tickets" [ngValue]="ticket.id" > {{ticket.id}}</option>
+      </select>
+      </div>
+      <div class="card-body">
+        <form [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <span style="color: red">{{error}}</span>
+
+<!--                <div class="form-group" >-->
+<!--                  <label class="form-control-label" for="id">Mã Vé</label>-->
+<!--                  <select class="form-control" id="mave" formControlName="mave">-->
+<!--                    <option value="" [disabled]="true">Chọn Mã Vé</option>-->
+<!--                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.id" > {{ticket.id}}</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+
+                <div class="form-group" >
+                  <label class="form-control-label" for="id">Mã Vé</label>
+                  <select class="form-control" id="id" formControlName="id">
+                    <option value="" [disabled]="true">Chọn Mã Vé</option>
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.id" > {{ticket.id}}</option>
+                  </select>
+                </div>
+                <div class="form-group"  >
+                  <label class="form-control-label" for="tenphim">Tên Phim</label>
+                  <select class="form-control" id="tenphim" formControlName="tenphim">
+                    <option  *ngFor="let ticket of ticketss" [ngValue]="ticket.tenphim" > {{ticket.tenphim}}</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label" for="marap">Mã Rạp</label>
+                  <select class="form-control" id="marap" formControlName="marap">
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.marap" > {{ticket.marap}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="lichchieu">Mã Rạp</label>
+                  <select class="form-control" id="lichchieu" formControlName="lichchieu">
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.lichchieu" > {{ticket.lichchieu}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="idGhe">Mã Ghế</label>
+                  <select class="form-control" id="idGhe" formControlName="idGhe">
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.idGhe" > {{ticket.idGhe}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="giave">Giá Vé</label>
+                  <select class="form-control" id="giave" formControlName="giave" >
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.giave" > {{ticket.giave}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="timeStart">Giờ Bắt Đầu</label>
+                  <select class="form-control" id="timeStart" formControlName="timeStart"  type="date">
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.timeStart" > {{ticket.timeStart}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="timeEnd">Giờ Kết Thúc</label>
+                  <select class="form-control" id="timeEnd" formControlName="timeEnd"  type="date">
+                    <option *ngFor="let ticket of ticketss" [ngValue]="ticket.timeEnd" > {{ticket.timeEnd}}</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="khunggio">Khung Giờ</label>
+                  <select class="form-control" id="khunggio" formControlName="khunggio" >
+                    <option>8:00-12:00</option>
+                    <option>12:00-18:00</option>
+                    <option>18:00-22:00</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="giotra">Giờ trả vé</label>
+                  <input id="giotra" formControlName="giotra" class="form-control form-control-alternative" placeholder="Giờ trả vé" type="datetime-local">
+                </div>
+
+                <button type="submit" class="btn btn-success" >Submit</button>
+                <button type="submit" class="btn btn-success" *ngIf="isUpdate">Update</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+

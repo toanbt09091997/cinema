@@ -1,0 +1,56 @@
+.header {
+  width: 100%;
+  background-color: #343a40 !important;
+}
+
+.logo-t1 {
+  font-weight: bold;
+  font-size: 25px;
+  color: rgb(220, 3, 48);
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  //font-family: "Allerta Stencil", Sans-serif;
+}
+
+.form-inline a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.bg-dark {
+  background-color: #117a8b !important;
+}
+
+.logo-t2 {
+  //background-color: rgb(128, 255, 255);
+  border-radius: 3px;
+  padding: 3px;
+
+}
+
+.dropdown button {
+  border-radius: 10px;
+  background-color: #2b9eb1;
+  color: #fff;
+  font-weight: bold;
+}
+
+.dropdown a {
+  border-radius: 10px;
+  background-color: #2b9eb1;
+  color: #333;
+  font-weight: bold;
+}
+
+.nav-item a {
+  //color: #fff;
+  font-weight: bold;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}

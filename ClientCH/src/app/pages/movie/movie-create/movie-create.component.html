@@ -1,0 +1,83 @@
+<div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center">
+  <span class="mask bg-gradient-danger opacity-8"></span>
+</div>
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="card bg-secondary shadow col-12">
+      <div class="card-header bg-white border-0">
+        <div class="row align-items-center">
+          <div class="col-8">
+            <h3 class="mb-0">Add Movie</h3>
+          </div>
+          <div class="col-4 text-right">
+            <a href="movie" class="btn btn-sm btn-primary">Movie</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [noValidate]="true" [formGroup]="form" (ngSubmit)="doSubmit()">
+          <div class="pl-lg-4">
+            <div class="row">
+              <div class="col-md-12">
+                <span style="color: red">{{error}}</span>
+                <div class="form-group" *ngIf="!isUpdate">
+                  <label class="form-control-label" for="maphim">Mã Phim</label>
+                  <input id="maphim" formControlName="maphim" class="form-control form-control-alternative" placeholder="Mã Phim" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="tenphim">Tên Phim</label>
+                  <input id="tenphim" formControlName="tenphim" class="form-control form-control-alternative" placeholder="Tên Phim" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="loaiphim">Loại PHim</label>
+                  <input id="loaiphim" formControlName="loaiphim" class="form-control form-control-alternative" placeholder="Loại PHim" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="theloai">Thể Loại</label>
+                  <input id="theloai" formControlName="theloai" class="form-control form-control-alternative" placeholder="Thể Loại Phim" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="namsx">Năm Sản Xuất</label>
+                  <input id="namsx" formControlName="namsx" class="form-control form-control-alternative" placeholder="Năm Sản Xuất"type="number">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="image">Ảnh Bìa</label>
+                  <input id="image" formControlName="image" class="form-control form-control-alternative" placeholder="Ảnh Bìa" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="trailer">Trailer</label>
+                  <input id="trailer" formControlName="trailer" class="form-control form-control-alternative" placeholder="Trailer" type="text">
+                </div>
+                <div class="form-group">
+                  <label class="form-control-label" for="minutes">Thời Lượng Phim</label>
+                  <input id="minutes" formControlName="minutes" class="form-control form-control-alternative" placeholder="Thời Lượng Phim" type="number">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-control-label" for="mota">Mô Tả</label>
+                  <textarea id="mota" formControlName="mota" rows="4" class="form-control form-control-alternative" placeholder="Mô Tả"></textarea>
+                </div>
+
+
+
+                <p class="font-weight-bold">Rạp</p>
+
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item" *ngFor="let c of cinemas">
+                    <!-- Default checked -->
+                    <div class="">
+                      <label><input type="radio" formControlName="idrap" name="idrap" class="" id="idrap" value="{{c.id}}">{{c.tenrap}}</label>
+                    </div>
+                  </li>
+                </ul>
+
+                <button type="submit" class="btn btn-success" *ngIf="!isUpdate">Submit</button>
+                <button type="submit" class="btn btn-success" *ngIf="isUpdate">Update</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

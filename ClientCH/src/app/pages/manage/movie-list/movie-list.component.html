@@ -1,0 +1,54 @@
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow">
+        <div class="card-header border-0">
+          <div class="row">
+              <div class="col-3" *ngFor="let movie of movies" (click)="OnSelect(movie)">
+                <div class="movie">
+                  <img src="{{movie.image}}" alt="{{movie.tenphim}}">
+                  <div class="moviename">{{movie.tenphim}}</div>
+                </div>
+              </div>
+            <div class="col-9" *ngIf="select != null">
+              <div class="titleshowtime">CHỌN XUẤT CHIẾU</div>
+              <div class="col-3 btn-showtime" *ngFor="let s of showtimes" (click)="showtimeClick(s)">
+                <a  style="line-height: 10px; width: 200px;" class="btn btn-outline-secondary">{{s.timeStart}} - P{{s.roomEntity.maphong}}</a>
+              </div>
+              <div class="row seat">
+                <div *ngIf="seats != null" class="col-1" style="border: 1px solid #ffaeae;"></div>
+                <div class="col-7">
+                  <div class="row">
+                    <li [class.selected]="s === sSelect" class="col-1 nopadding" *ngFor="let s of seats">
+                      <img *ngIf="s.loaighe == 1 && s.status == 1" style="filter: hue-rotate(700deg);" src="assets/img/seat.png" alt="">
+                      <img *ngIf="s.loaighe == 2 && s.status == 1" style="filter: hue-rotate(600deg);" src="assets/img/seat.png" alt="">
+                      <img *ngIf="s.loaighe == 3 && s.status == 1" style="filter: hue-rotate(600deg);" src="assets/img/seat.png" alt="">
+                      <img *ngIf="s.status == 2" style="filter: grayscale(100%); cursor: no-drop" src="assets/img/seat.png" alt="">
+                      <span *ngIf="s.status == 1" class="seatname" (click)="seatSelect(s)">{{s.tenghe}}</span>
+                      <span *ngIf="s.status == 2" class="seatnamebuy">{{s.tenghe}}</span>
+                    </li>
+                  </div>
+<!--                  <div style="font-weight: bold; margin-top: 10px;" *ngIf="sSelect != null">Select:-->
+<!--                    <span>{{teng}}</span> - {{giave}}-->
+<!--                    <a style="line-height: 10px; width: 200px; margin-left: 30px;" class="btn btn-info" (click)="clickSelect()">Checkout</a>-->
+<!--                  </div>-->
+                  <div style="font-weight: bold; margin-top: 10px;">Select:
+                    <span>{{teng}}</span> - {{giave}}
+                    <a style="line-height: 10px; width: 200px; margin-left: 30px;" class="btn btn-info" (click)="clickSelect()">Checkout</a>
+                  </div>
+                </div>
+                <div *ngIf="seats != null"  class="col-4">
+                  <img class="info" style="filter: hue-rotate(700deg);" src="assets/img/seat.png">: <span style="font-weight: bold">Ghế Thường</span><br>
+                  <img class="info" style="filter: hue-rotate(600deg);" src="assets/img/seat.png">: <span style="font-weight: bold">Ghế VIP</span><br>
+                  <img class="info" style="filter: grayscale(100%);" src="assets/img/seat.png">: <span  style="font-weight: bold">Đã Mua</span>
+                </div>
+              </div>
+              <a class="btn" (click)="clickSelect()">Thanh Toán</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-ticket [ticket]="ticket" [order] = "order" [listSeat]="listSeat"></app-ticket>
+    </div>
+  </div>
+</div>

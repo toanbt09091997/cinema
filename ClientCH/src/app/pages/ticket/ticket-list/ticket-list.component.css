@@ -1,0 +1,21 @@
+.container {
+  padding-top: 50px;
+  padding-bottom: 10px;
+  color: #0e4790;
+}
+
+.search-seat {
+  width: 300px;
+  /* margin-left: 700px; */
+  margin-bottom: 25px;
+  margin-top: 180px;
+  /* padding-right: 20px; */
+}
+
+
+.form-control {
+  box-shadow: 0 10px 40px 0 #B0C1D9;
+}
+.form-control::placeholder  {
+  font-family: FontAwesome;
+}
